@@ -33,6 +33,7 @@ def main_menu(maaori_list, english_list, main_menu_user_choice_input):
       #Tell the user that they chose vocabulary list
       print("Showing list of Vocabulary")
       print()
+      time.sleep(0.75)
       #Go to the vocabulary list function
       vocabulary_list(main_menu_user_choice_input)
     #If the user selects the quiz
@@ -41,8 +42,8 @@ def main_menu(maaori_list, english_list, main_menu_user_choice_input):
       #Tell the user that they chose the main quiz
       print("Beginning quiz")
       print()
-      #Go to the quiz function
       time.sleep(0.75)
+      #Go to the quiz function
       quiz_selector_input(maaori_list, english_list)
     #If the user selects instructions
     elif main_menu_user_choice_input == "instructions" or main_menu_user_choice_input == "instruction" or main_menu_user_choice_input == "i":
@@ -50,8 +51,8 @@ def main_menu(maaori_list, english_list, main_menu_user_choice_input):
       #Tell the user that they chose instructions
       print("Showing Instructions")
       print()
-      #Go to  the instructions function
       time.sleep(0.75)
+      #Go to  the instructions function
       instructions(main_menu_user_choice_input)
     #If the user inputs the exit code
     elif main_menu_user_choice_input == "exit":
@@ -67,7 +68,7 @@ def main_menu(maaori_list, english_list, main_menu_user_choice_input):
       time.sleep(0.75)
       #Tell the user the input they have entered is not valid
       print("'{}' is not a valid input. Please input 'Instructions', 'List' or 'Quiz'. press <enter> to continue.".format(main_menu_user_choice_input))
-      exit_or_continue = input("►")
+      exit_or_continue = input("►").lower()
       if exit_or_continue == 'exit':
         time.sleep(0.75)
         #tell the user they entered the exit code
@@ -88,7 +89,16 @@ def instructions(main_menu_user_choice_input):
   print("Instructions:")
   time.sleep(0.75)
   print()
-  print("The aim of the game is simple. Get the most words right! simply follow the prompts on the screen, and enter the answer when asked for it. Enter 'exit' to quit the quiz, or wait till the numbers run out when you're not in infinite mode.")
+  print("You can do an infinite or finite quiz. Simply enter quiz mode and follow the prompts in order to select your desired type.")
+  time.sleep(0.75)
+  print()
+  print("Once you enter your desired quiz type, you will be presented with a word in Maaori or English. Simply enter the correct translation and press <enter>, and you will be told whether you were correct or not.")
+  time.sleep(0.75)
+  print()
+  print("Once you are done, just enter 'exit'. You can do this at any time, in any component. Alternatively, if you are in a finite quiz you can wait for the rounds to run out.")
+  time.sleep(0.75)
+  print()
+  print("Thanks for playing, I hope you enjoy!")
   time.sleep(0.75)
   print()
   print("Tips:")
@@ -99,6 +109,8 @@ def instructions(main_menu_user_choice_input):
   print("This program uses the double vowel in place of the macron, so take that into account with your answers.")
   time.sleep(0.75)
   print()
+  print("Disclaimer-")
+  print("Not all translations may be 100% accurate, and these may not be the only translations of the presented words. If you are informed you are incorrect you may have spelt something wrong or entered an alternative translation. Should this occur you are encouraged to look further into the translations of the word using online resources, books, or a fluent te reo speaker.")
   #Letting the user leave when they're ready
   print("Press <enter> to return to main menu")
   input("►").lower()
@@ -230,9 +242,6 @@ def quiz_selector_input(maaori_list, english_list):
       try:
         #If the variable input_rounds_to_play is an integer and greater than 0
         if int(input_rounds_to_play) > 0:
-          #Clear the screen
-          for item in range(1, 100):
-            print()
           time.sleep(0.75)
           #Tell the user how many games have been selected and let them start when ready
           print ("{} Game(s) Selected. Press <enter> to continue".format(input_rounds_to_play))
@@ -285,7 +294,7 @@ def quiz_selector_input(maaori_list, english_list):
           print()
         time.sleep(0.75)
         #Tell the user they have entered an invalid input, and let them try again when they're ready
-        print("Please enter a whole number greater than 0 or press <enter> for infinite mode. Press <enter> to retry")
+        print("'{}' is an invalid input. Please enter a whole number greater than 0 or press <enter> for infinite mode. Press <enter> to retry".format(input_rounds_to_play))
         time.sleep(0.75)
         #let the user continue when ready
         exit_or_continue = input("►").lower()
@@ -308,7 +317,7 @@ def quiz_selector_input(maaori_list, english_list):
           print()
         time.sleep(0.75)
         #Tell the user they have entered an invalid input, and let them try again when they're ready
-        print("Please enter a whole number greater than 0 or press <enter> for infinite mode. Press <enter> to retry")
+        print("'{}' is an invalid input. Please enter a whole number greater than 0 or press <enter> for infinite mode. Press <enter> to retry".format(input_rounds_to_play))
         time.sleep(0.75)
         #Let the user continue when ready
         exit_or_continue = input("►").lower()
